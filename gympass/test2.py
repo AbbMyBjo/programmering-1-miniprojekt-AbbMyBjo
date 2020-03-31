@@ -184,13 +184,27 @@ while counter <= b:
 
         while i <= len(gympass_siffror):
             plats = (gympass_siffror[x])
-            övning = Gymövningar[6]["övningar"][plats]
-            övning2 = Gymövningar[7]["övningar"][plats]
+            try:
+                övning = Gymövningar[6]["övningar"][plats]
+                gympass_bokstäver.append(övning)
+            except:
+                övning = Gymövningar[6]["övningar"][plats]
+                if Gymövningar[6]["övningar"].index(övning) > len(Gymövningar[6]["övningar"]):
+                    nyplats = len(Gymövningar[6]["övningar"])-Gymövningar[6]["övningar"][plats]
+                    övning = Gymövningar[6]["övningar"][nyplats]
+                    gympass_bokstäver.append(övning)
+            try:
+                övning2 = Gymövningar[7]["övningar"][plats]
+                gympass_bokstäver.append(övning2)
+            except:
+                övning2 = Gymövningar[7]["övningar"][plats]
+                if Gymövningar[7]["övningar"].index(övning2) > len(Gymövningar[7]["övningar"]):
+                    nyplats = len(Gymövningar[7]["övningar"])-Gymövningar[7]["övningar"][plats]
+                    övning2 = Gymövningar[7]["övningar"][nyplats]
+                    gympass_bokstäver.append(övning2)
             x+=1
-            # övning = Gymövningar[7]["övningar"][plats]
-            # x+=1
-            gympass_bokstäver.append(övning)
-            gympass_bokstäver.append(övning2)
+            # gympass_bokstäver.append(övning)
+            # gympass_bokstäver.append(övning2)
 
         print("176")
 
