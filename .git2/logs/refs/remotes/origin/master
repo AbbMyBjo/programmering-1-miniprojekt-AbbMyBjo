@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 9ca8263dcffecadc0a8dfd78587bc4fc51ce594f AbbMyBjo <54663051+AbbMyBjo@users.noreply.github.com> 1583848177 +0100	fetch --progress --prune origin: storing head
+9ca8263dcffecadc0a8dfd78587bc4fc51ce594f 25f5194e6cc71abea908d6b8a3f72cc941ecd240 AbbMyBjo <54663051+AbbMyBjo@users.noreply.github.com> 1585063533 +0100	fetch --progress --prune origin: fast-forward
+25f5194e6cc71abea908d6b8a3f72cc941ecd240 d4b4cf4c2b98ff548f5e275e046bece7de83d8fe AbbMyBjo <54663051+AbbMyBjo@users.noreply.github.com> 1585640684 +0300	pull --progress origin: fast-forward
+d4b4cf4c2b98ff548f5e275e046bece7de83d8fe 09524818511f319d98a725a3d61b4d2d10c821f9 AbbMyBjo <54663051+AbbMyBjo@users.noreply.github.com> 1585649627 +0300	pull --tags origin master: fast-forward
