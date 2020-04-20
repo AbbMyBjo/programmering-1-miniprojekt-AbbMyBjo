@@ -1,36 +1,35 @@
 import random
 
 felmeddelande = "Något gick fel. Stänger av programmet."
-# print("Välkommen till gympass-skaparen. Nedan kan du skriva vilka du har för krav på passet/passen jag ska göra åt dig.")
+print("Välkommen till gympass-skaparen. Nedan kan du skriva vilka du har för krav på passet/passen jag ska göra åt dig.")
 
-# a = input("Vill du fokusera på någon/några speciella delar av kroppen? ")
-# if a == "ja":
-#     a = input("Ange helkropp/överkropp/underkropp eller en/flera specifika kroppsdelar. \n")
-# elif a == "nej":
-#     a = "helkropp"
-# else:
-#     print(felmeddelande+"rad12")
-a = "underkropp"
-# b = input("Hur många pass vill du att jag ska göra? ")
-b = 5
-# try:
-#     b = int(b)
-# except:
-#     while 1:
-#         print("Ange ett giltigt nummer.")
-#         b = input("Hur många pass vill du att jag ska göra? ")
-#         try:
-#             b = int(b)
-#             break
-#         except:
-#             continue
+a = input("Vill du fokusera på någon/några speciella delar av kroppen? ")
+if a == "ja":
+    a = input("Ange helkropp/överkropp/underkropp eller en/flera specifika kroppsdelar. \n")
+elif a == "nej":
+    a = "helkropp"
+else:
+    print(felmeddelande+"rad12")
 
-# if b == 1:
-#     d = input("Hur hårt ska passet vara? Välj mellan väldigt lätt, lätt, medel och intensivt. ")
-# elif b > 1:
-#     d = input("Hur hårda ska passen vara? Välj mellan väldigt lätt, lätt, medel och intensivt. ")
-#     #e = input("Ska jag göra ett veckoschema för passen? ")
-d = "medel"
+b = input("Hur många pass vill du att jag ska göra? ")
+
+try:
+    b = int(b)
+except:
+    while 1:
+        print("Ange ett giltigt nummer.")
+        b = input("Hur många pass vill du att jag ska göra? ")
+        try:
+            b = int(b)
+            break
+        except:
+            continue
+
+if b == 1:
+    d = input("Hur hårt ska passet vara? Välj mellan väldigt lätt, lätt, medel och intensivt. ")
+elif b > 1:
+    d = input("Hur hårda ska passen vara? Välj mellan väldigt lätt, lätt, medel och intensivt. ")
+    #e = input("Ska jag göra ett veckoschema för passen? ")
 
 Gymövningar = [
         {"namn": "biceps", "övningar":["skivstångscurl", "hantelcurl", "hammercurl", "pullups", "preacher curls", "sittande bicepscurls"]},
@@ -70,7 +69,7 @@ while counter <= b:
             i+=1
 
         gympass_bokstäver = []
-        
+
         print("73")
 
         for keys in gympass_siffror:
@@ -112,6 +111,7 @@ while counter <= b:
         else:
             print(felmeddelande)
             exit
+
         i+=1
         counter+=1
 
@@ -189,8 +189,8 @@ while counter <= b:
                 gympass_bokstäver.append(övning)
                 x+=1
                 i+=1
+
             except:
-                övning = Gymövningar[6]["övningar"][plats]
                 x+=1
                 i+=1
                 if Gymövningar[6]["övningar"].index(övning) > len(Gymövningar[6]["övningar"]):
@@ -199,13 +199,14 @@ while counter <= b:
                     gympass_bokstäver.append(övning)
                     x+=1
                     i+=1
+
             try:
                 övning2 = Gymövningar[7]["övningar"][plats]
                 gympass_bokstäver.append(övning2)
                 x+=1
                 i+=1
+
             except:
-                övning2 = Gymövningar[7]["övningar"][plats]
                 x+=1
                 i+=1
                 if Gymövningar[7]["övningar"].index(övning2) > len(Gymövningar[7]["övningar"]):
@@ -214,10 +215,6 @@ while counter <= b:
                     gympass_bokstäver.append(övning2)
                     x+=1
                     i+=1
-            # x+=1
-            # i+=1
-            # gympass_bokstäver.append(övning)
-            # gympass_bokstäver.append(övning2)
 
         print("176")
 
@@ -258,10 +255,17 @@ while counter <= b:
     i+=1
     counter+=1
 
-#if b = 1:
-#print("Här är ditt pass: ")#
-#else:
-#print("Här är dina pass:")
+i= 0
+
+# for listor in träningspass:
+#     for keys in träningspass[i]:
+        
+
+
+if b < 1:
+    print("Här är dina pass: ")
+elif b == 1:
+    print("Här är ditt pass: ")
 
 passnummer = 1
 for träningspass in flera_pass:
@@ -269,4 +273,4 @@ for träningspass in flera_pass:
     passnummer+=1
 #redigera if-satserna så alla inputs blir inkluderade innan fortsättning
 #samma sak som innan med underkropp och olika kroppsdelar
-#variera kroppdel man tränar, inte alltid samma om typ 6 pass
+#variera kroppsdel man tränar, inte alltid samma om typ 6 pass. ex. en ny input som frågar om variation och då 2 olika dear av kroppen
