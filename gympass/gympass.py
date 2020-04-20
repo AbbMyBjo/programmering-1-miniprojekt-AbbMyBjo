@@ -5,7 +5,7 @@ print("Välkommen till gympass-skaparen. Nedan kan du skriva vilka du har för k
 
 a = input("Vill du fokusera på någon/några speciella delar av kroppen? ")
 if a == "ja":
-    a = input("Ange helkropp/överkropp/underkropp eller en/flera specifika kroppsdelar. \n")
+    a = input("Ange helkropp/överkropp/underkropp eller bål. \n")
 elif a == "nej":
     a = "helkropp"
 else:
@@ -115,7 +115,7 @@ while counter <= b:
 
     elif a == "överkropp":
         print("116")
-        while i <= 6:
+        while i <= 5:
             övn_siff = random.randrange(0, len(Gymövningar[i2]["övningar"]))
             gympass_siffror.append(övn_siff)
             i2+=1
@@ -253,12 +253,15 @@ while counter <= b:
     i+=1
     counter+=1
 
-i= 0
+i = 0
+i2 = 1
 
-# for listor in träningspass:
-#     for keys in träningspass[i]:
-        
+for listor in flera_pass:
+    for övningar in flera_pass[i]:
+        if flera_pass[i].__contains__(flera_pass[i2]):
+            flera_pass.pop(flera_pass[i])
 
+i = 0
 
 if b < 1:
     print("Här är dina pass: ")
