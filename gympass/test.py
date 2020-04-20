@@ -3,7 +3,7 @@ import random
 felmeddelande = "Något gick fel. Stänger av programmet."
 print("Välkommen till gympass-skaparen. Nedan kan du skriva vilka du har för krav på passet/passen jag ska göra åt dig.")
 
-a = "bål"
+a = "underkropp"
 b = 6
 d = "medel"
 
@@ -84,7 +84,86 @@ while counter <= b:
         else:
             print(felmeddelande)
         print("168")
+    elif a == "underkropp":
+        print("168")
+        while i <= 6:
+            ÖvningEtt = random.randrange(0, len(Gymövningar[6]["övningar"]))
+            ÖvningTvå = random.randrange(0, len(Gymövningar[7]["övningar"]))
+            gympass_siffror.append(ÖvningEtt)
+            i += 1
+            gympass_siffror.append(ÖvningTvå)
+            i += 1
+            print(gympass_siffror)
 
+        x = 0
+        i = 1
+
+        while i <= len(gympass_siffror):
+            plats = (gympass_siffror[x])
+            try:
+                övning = Gymövningar[6]["övningar"][plats]
+                gympass_bokstäver.append(övning)
+                x+=1
+                i+=1
+
+            except:
+                x+=1
+                i+=1
+                if Gymövningar[6]["övningar"].index(övning) > len(Gymövningar[6]["övningar"]):
+                    nyplats = len(Gymövningar[6]["övningar"])-Gymövningar[6]["övningar"][plats]
+                    övning = Gymövningar[6]["övningar"][nyplats]
+                    gympass_bokstäver.append(övning)
+                    x+=1
+                    i+=1
+
+            try:
+                övning2 = Gymövningar[7]["övningar"][plats]
+                gympass_bokstäver.append(övning2)
+                x+=1
+                i+=1
+
+            except:
+                x+=1
+                i+=1
+                if Gymövningar[7]["övningar"].index(övning2) > len(Gymövningar[7]["övningar"]):
+                    nyplats = len(Gymövningar[7]["övningar"])-Gymövningar[7]["övningar"][plats]
+                    övning2 = Gymövningar[7]["övningar"][nyplats]
+                    gympass_bokstäver.append(övning2)
+                    x+=1
+                    i+=1
+
+        print("176")
+
+        if d == "lätt":
+            for keys in gympass_bokstäver:
+               ettpass.append(keys+" 2x10")
+            flera_pass.append(ettpass)
+            print("182")
+
+        elif d == "medel":
+            for keys in gympass_bokstäver:
+                ettpass.append(keys+" 3x10")
+            flera_pass.append(ettpass)
+            print("188")
+
+        elif d == "intensivt":
+            nyövning = random.randrange(0, len(Intensivt))
+            gympass_siffror.append(Intensivt[nyövning])
+            gympass_bokstäver.append(gympass_siffror[-1]) 
+            for keys in gympass_bokstäver:
+                ettpass.append(keys+" 3x15")
+            flera_pass.append(ettpass)
+            print("197")
+
+        elif d == "väldigt lätt":
+            for keys in gympass_bokstäver:
+                ettpass.append(keys+" x10")
+            flera_pass.append(ettpass)
+            print("203")
+
+        else:
+            print(felmeddelande)
+            exit
     elif a == "bål":
         print("90")
         while i <= 6:
@@ -180,13 +259,18 @@ for träningspass in flera_pass:
 
 i = 0
 i2 = 1
+print(len(flera_pass))
 
 for listor in flera_pass:
+    i = 0
+    i2 = 0
     for övningar in flera_pass[i]:
-        if flera_pass[i] == (flera_pass[i2]):
+        if flera_pass[i] == flera_pass[i2]:
             flera_pass.pop(flera_pass[i])
             i += 1
             i2 += 1
+        elif i2 >= len(flera_pass):
+            break
         else:
             i2 += 1
 

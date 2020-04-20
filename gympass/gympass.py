@@ -253,13 +253,23 @@ while counter <= b:
     i+=1
     counter+=1
 
+
 i = 0
 i2 = 1
+print(len(flera_pass))
 
 for listor in flera_pass:
+    i = 0
+    i2 = 0
     for övningar in flera_pass[i]:
-        if flera_pass[i].__contains__(flera_pass[i2]):
+        if flera_pass[i] == flera_pass[i2]:
             flera_pass.pop(flera_pass[i])
+            i += 1
+            i2 += 1
+        elif i2 >= len(flera_pass):
+            break
+        else:
+            i2 += 1
 
 i = 0
 
