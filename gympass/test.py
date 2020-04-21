@@ -256,40 +256,44 @@ elif b == 1:
 else:
     print("Här är passen.")
 
-passnummer = 1
-for träningspass in flera_pass:
-    print("pass "+ str(passnummer) + str(träningspass))
-    passnummer+=1
+# passnummer = 1
+# for träningspass in flera_pass:
+#     print("pass "+ str(passnummer) + str(träningspass))
+#     passnummer+=1
 
-print(len(flera_pass))
+# print(len(flera_pass))
 
 i3 = 0
-
+print(flera_pass)
 for listor in flera_pass:
     i = 0
     i2 = 1
     print(flera_pass[i3])
-    if i3 == len(flera_pass):
-        break
-    else:
-        continue
     i3 += 1
-    for övningar in flera_pass[i]:
-        print(flera_pass[i3])
-        if str(flera_pass[i3][i]) == str(flera_pass[i3][i2]):
-            print(flera_pass[i3])
-            flera_pass[i3].pop(i)
+    for övning in flera_pass[i3][i]:
+        poppat_värde = flera_pass[i3].pop(i)
+        print("279")
+        if poppat_värde in flera_pass[i3]:
+            print("280")
+            tabortindex = flera_pass[i3].index(poppat_värde)
+            print("280")
+            flera_pass[i3].pop(tabortindex)
             i += 1
             i2 += 1
             print(i)
             print(flera_pass[i3])
-        elif i2 == len(flera_pass):
+        elif i2 == len(flera_pass[i3]):
             break
-        elif i == len(flera_pass):
+        elif i == len(flera_pass[i3]):
             break
         else:
             i2 += 1
+        flera_pass[i3].append(poppat_värde)
 
+passnummer = 1
+for träningspass in flera_pass:
+    print("pass "+ str(passnummer) + str(träningspass))
+    passnummer+=1
 
 # if a.__contains__("km"):
 #     km_to_miles(a)
