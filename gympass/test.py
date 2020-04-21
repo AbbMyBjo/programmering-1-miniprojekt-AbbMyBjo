@@ -4,8 +4,8 @@ felmeddelande = "Något gick fel. Stänger av programmet."
 print("Välkommen till gympass-skaparen. Nedan kan du skriva vilka du har för krav på passet/passen jag ska göra åt dig.")
 
 a = "underkropp"
-b = 6
-d = "medel"
+b = 5
+d = "lätt"
 
 Gymövningar = [
         {"namn": "biceps", "övningar":["skivstångscurl", "hantelcurl", "hammercurl", "pullups", "preacher curls", "sittande bicepscurls"]},
@@ -97,6 +97,7 @@ while counter <= b:
 
         x = 0
         i = 1
+        y = 0
 
         while i <= len(gympass_siffror):
             plats = (gympass_siffror[x])
@@ -109,28 +110,29 @@ while counter <= b:
             except:
                 x+=1
                 i+=1
-                if Gymövningar[6]["övningar"].index(övning) > len(Gymövningar[6]["övningar"]):
+                if Gymövningar[6]["övningar"].index(övning) == len(Gymövningar[6]["övningar"]):
                     nyplats = len(Gymövningar[6]["övningar"])-Gymövningar[6]["övningar"][plats]
                     övning = Gymövningar[6]["övningar"][nyplats]
                     gympass_bokstäver.append(övning)
-                    x+=1
-                    i+=1
+                else:
+                    break
 
+            plats = (gympass_siffror[y])
             try:
                 övning2 = Gymövningar[7]["övningar"][plats]
                 gympass_bokstäver.append(övning2)
-                x+=1
+                y+=1
                 i+=1
 
             except:
-                x+=1
+                y+=1
                 i+=1
-                if Gymövningar[7]["övningar"].index(övning2) > len(Gymövningar[7]["övningar"]):
+                if Gymövningar[7]["övningar"].index(övning2) == len(Gymövningar[7]["övningar"]):
                     nyplats = len(Gymövningar[7]["övningar"])-Gymövningar[7]["övningar"][plats]
                     övning2 = Gymövningar[7]["övningar"][nyplats]
                     gympass_bokstäver.append(övning2)
-                    x+=1
-                    i+=1
+                else:
+                    break
 
         print("176")
 
@@ -247,29 +249,43 @@ while counter <= b:
 
     counter+=1
 
-if b < 1:
+if b <= 2:
     print("Här är dina pass: ")
 elif b == 1:
     print("Här är ditt pass: ")
+else:
+    print("Här är passen.")
 
 passnummer = 1
 for träningspass in flera_pass:
     print("pass "+ str(passnummer) + str(träningspass))
     passnummer+=1
 
-i = 0
-i2 = 1
 print(len(flera_pass))
+
+i3 = 0
 
 for listor in flera_pass:
     i = 0
-    i2 = 0
+    i2 = 1
+    print(flera_pass[i3])
+    if i3 == len(flera_pass):
+        break
+    else:
+        continue
+    i3 += 1
     for övningar in flera_pass[i]:
-        if flera_pass[i] == flera_pass[i2]:
-            flera_pass.pop(flera_pass[i])
+        print(flera_pass[i3])
+        if str(flera_pass[i3][i]) == str(flera_pass[i3][i2]):
+            print(flera_pass[i3])
+            flera_pass[i3].pop(i)
             i += 1
             i2 += 1
-        elif i2 >= len(flera_pass):
+            print(i)
+            print(flera_pass[i3])
+        elif i2 == len(flera_pass):
+            break
+        elif i == len(flera_pass):
             break
         else:
             i2 += 1
