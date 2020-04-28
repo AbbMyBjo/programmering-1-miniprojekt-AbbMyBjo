@@ -83,12 +83,13 @@ while counter <= b:
 
         else:
             print(felmeddelande)
-        print("168")
+        print("88")
+
     elif a == "underkropp":
-        print("168")
+        print("88")
         while i <= 6:
-            ÖvningEtt = random.randrange(0, len(Gymövningar[6]["övningar"]))
-            ÖvningTvå = random.randrange(0, len(Gymövningar[7]["övningar"]))
+            ÖvningEtt = random.randrange(0, len(Gymövningar[6]["övningar"])-1)
+            ÖvningTvå = random.randrange(0, len(Gymövningar[7]["övningar"])-1)
             gympass_siffror.append(ÖvningEtt)
             i += 1
             gympass_siffror.append(ÖvningTvå)
@@ -100,39 +101,51 @@ while counter <= b:
         y = 0
 
         while i <= len(gympass_siffror):
-            plats = (gympass_siffror[x])
-            try:
-                övning = Gymövningar[6]["övningar"][plats]
-                gympass_bokstäver.append(övning)
-                x+=1
-                i+=1
-
-            except:
-                x+=1
-                i+=1
-                if Gymövningar[6]["övningar"].index(övning) == len(Gymövningar[6]["övningar"]):
-                    nyplats = len(Gymövningar[6]["övningar"])-Gymövningar[6]["övningar"][plats]
-                    övning = Gymövningar[6]["övningar"][nyplats]
+            while 1:
+                if len(gympass_bokstäver)==8:
+                    break
+                else:
+                    plats = (gympass_siffror[x])
+                    övning = Gymövningar[6]["övningar"][plats]
                     gympass_bokstäver.append(övning)
-                else:
-                    break
-
-            plats = (gympass_siffror[y])
-            try:
-                övning2 = Gymövningar[7]["övningar"][plats]
-                gympass_bokstäver.append(övning2)
-                y+=1
-                i+=1
-
-            except:
-                y+=1
-                i+=1
-                if Gymövningar[7]["övningar"].index(övning2) == len(Gymövningar[7]["övningar"]):
-                    nyplats = len(Gymövningar[7]["övningar"])-Gymövningar[7]["övningar"][plats]
-                    övning2 = Gymövningar[7]["övningar"][nyplats]
+                    övning2 = Gymövningar[7]["övningar"][plats]
                     gympass_bokstäver.append(övning2)
-                else:
-                    break
+                    y+=1
+                    x+=1
+            i+=1
+
+            # try:
+            #     övning = Gymövningar[6]["övningar"][plats]
+            #     gympass_bokstäver.append(övning)
+            #     x+=1
+            #     i+=1
+
+            # except:
+            #     x+=1
+            #     i+=1
+            #     if Gymövningar[6]["övningar"].index(övning) == len(Gymövningar[6]["övningar"]):
+            #         nyplats = len(Gymövningar[6]["övningar"])-Gymövningar[6]["övningar"][plats]
+            #         övning = Gymövningar[6]["övningar"][nyplats]
+            #         gympass_bokstäver.append(övning)
+            #     else:
+            #         break
+
+            # plats = (gympass_siffror[y])
+            # try:
+            #     övning2 = Gymövningar[7]["övningar"][plats]
+            #     gympass_bokstäver.append(övning2)
+            #     y+=1
+            #     i+=1
+
+            # except:
+            #     y+=1
+            #     i+=1
+            #     if index(övning2) == len(Gymövningar[7]["övningar"]):
+            #         nyplats = len(Gymövningar[7]["övningar"])-Gymövningar[7]["övningar"][plats]
+            #         övning2 = Gymövningar[7]["övningar"][nyplats]
+            #         gympass_bokstäver.append(övning2)
+            #     else:
+            #         break
 
         print("176")
 
@@ -249,7 +262,7 @@ while counter <= b:
 
     counter+=1
 
-if b <= 2:
+if int(b) <= 2:
     print("Här är dina pass: ")
 elif b == 1:
     print("Här är ditt pass: ")
@@ -265,30 +278,28 @@ else:
 
 i3 = 0
 print(flera_pass)
-for listor in flera_pass:
-    i = 0
-    i2 = 1
-    print(flera_pass[i3])
-    i3 += 1
-    for övning in flera_pass[i3][i]:
-        poppat_värde = flera_pass[i3].pop(i)
-        print("279")
-        if poppat_värde in flera_pass[i3]:
-            print("280")
-            tabortindex = flera_pass[i3].index(poppat_värde)
-            print("280")
-            flera_pass[i3].pop(tabortindex)
-            i += 1
-            i2 += 1
-            print(i)
-            print(flera_pass[i3])
-        elif i2 == len(flera_pass[i3]):
-            break
-        elif i == len(flera_pass[i3]):
-            break
-        else:
-            i2 += 1
-        flera_pass[i3].append(poppat_värde)
+# for listor in flera_pass:
+#     i = 0
+#     print(flera_pass[i3])
+#     i3 += 1
+#     for övning in flera_pass[i3][i]:
+#         poppat_värde = flera_pass[i3].pop(i)
+#         print("279")
+#         if poppat_värde in flera_pass[i3]:
+#             print("280")
+#             tabortindex = flera_pass[i3].index(poppat_värde)
+#             print("280")
+#             flera_pass[i3].pop(tabortindex)
+#             i += 1
+#             print(i)
+#             print(flera_pass[i3])
+#         elif i == len(flera_pass[i3]):
+#             break
+#         elif i == len(flera_pass[i3]):
+#             break
+#         else:
+#             i+=1
+#         flera_pass[i3].append(poppat_värde)
 
 passnummer = 1
 for träningspass in flera_pass:
@@ -299,3 +310,4 @@ for träningspass in flera_pass:
 #     km_to_miles(a)
 # elif a.__contains__("miles"):
 #     miles_to_km(a)
+# kör debug programmet
