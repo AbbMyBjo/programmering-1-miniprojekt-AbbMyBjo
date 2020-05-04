@@ -273,14 +273,14 @@ print(len(flera_pass))
 
 i = 0
 
-if b < 1:
-    print("Här är dina pass: ")
-elif b == 1:
+if b == 1:
     print("Här är ditt pass: ")
+else:
+    print("Här är dina pass: ")
 
 passnummer = 1
 for träningspass in flera_pass:
-    print("pass "+ str(passnummer) + str(träningspass))
+    print("pass: "+ str(passnummer) + str(träningspass))
     passnummer+=1
 #redigera if-satserna så alla inputs blir inkluderade innan fortsättning
 #samma sak som innan med underkropp och olika kroppsdelar
