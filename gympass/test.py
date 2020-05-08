@@ -112,7 +112,6 @@ while counter <= b:
                 y+=1
                 x+=1
     counter += 1
-
     if d == "lätt":
         for keys in gympass_bokstäver:
             ettpass.append(keys+" 2x10")
@@ -159,30 +158,40 @@ else:
 
 # print(len(flera_pass))
 
-i3 = 0
 print(flera_pass)
-# for listor in flera_pass:
-#     i4 = 0
-#     print(flera_pass[i3])
-#     i3 += 1
-#     for övning in flera_pass[i3][i4]:
-#         poppat_värde = flera_pass[i3].pop(i4)
-#         print("279")
-#         if poppat_värde in flera_pass[i3]:
-#             print("280")
-#             tabortindex = flera_pass[i3].index(poppat_värde) #GÖR OM LOOPEN!!!!!!!!!!!!!!
-#             print("280")
-#             flera_pass[i3].pop(tabortindex)
-#             i4 += 1
-#             print(i4)
-#             print(flera_pass[i3])
-#         elif i4 == len(flera_pass[i3]):
-#             break
-#         elif i4 == len(flera_pass[i3]):
-#             break
-#         else:
-#             i4+=1
-#         flera_pass[i3].append(poppat_värde) 
+i3 = 0
+for listor in flera_pass:
+    i4 = 0
+    for övning in flera_pass[i3]:
+        poppat_värde = flera_pass[i3].pop(i4)
+        sant2 = True
+        i5 = 0
+        i6 = 0
+        while sant2 == True:
+            if poppat_värde in flera_pass[i3]:
+                tabortindex = flera_pass[i3].index(poppat_värde)
+                flera_pass[i3].pop(tabortindex)
+                i5 += 1
+            elif i5 == len(flera_pass[i3]):
+                break
+            else:
+                sant2 == False
+                i5 += 1
+        flera_pass[i3].insert(i6, poppat_värde)
+        i6 += 1 
+        i4 += 1
+    i3 += 1
+
+for lista in flera_pass:
+    if lista < 8:
+        if a = "bål":
+            
+        elif a = "överkropp":
+
+        elif a = "underkropp":
+
+        else:
+            nyövning2 = random.randrange(0, 8)
 
 passnummer = 1
 for träningspass in flera_pass:
