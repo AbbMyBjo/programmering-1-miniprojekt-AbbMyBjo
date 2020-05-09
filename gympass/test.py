@@ -3,8 +3,8 @@ import random
 felmeddelande = "Något gick fel. Stänger av programmet."
 print("Välkommen till gympass-skaparen. Nedan kan du skriva vilka du har för krav på passet/passen jag ska göra åt dig.")
 
-a = "bål"
-b = 5
+a = "överkropp"
+b = 1
 d = "lätt"
 
 Gymövningar = [
@@ -34,7 +34,6 @@ while counter <= b:
     gympass_siffror = []
     gympass_bokstäver = []
     if a == "överkropp":
-        print("116")
         while i <= 5:
             övn_siff = random.randrange(0, len(Gymövningar[i2]["övningar"]))
             gympass_siffror.append(övn_siff)
@@ -51,11 +50,8 @@ while counter <= b:
             x+=1
             y+=1
             gympass_bokstäver.append(övning)
-            print("i loop 132")
-        print("132")
 
     elif a == "underkropp":
-        print("88")
         while i <= 6:
             ÖvningEtt = random.randrange(0, len(Gymövningar[6]["övningar"])-1)
             ÖvningTvå = random.randrange(0, len(Gymövningar[7]["övningar"])-1)
@@ -63,7 +59,6 @@ while counter <= b:
             i += 1
             gympass_siffror.append(ÖvningTvå)
             i += 1
-            print(gympass_siffror)
 
         x = 0
         i = 1
@@ -84,7 +79,6 @@ while counter <= b:
             i+=1
     
     elif a == "bål":
-        print("90")
         inte = 0
         while inte < 6:
             ÖvningEtt = random.randrange(0, len(Gymövningar[2]["övningar"]))
@@ -92,7 +86,6 @@ while counter <= b:
             gympass_siffror.append(ÖvningEtt)
             gympass_siffror.append(ÖvningTvå)
             inte += 2
-            print(gympass_siffror)
 
         x = 0
         i = 1
@@ -116,13 +109,11 @@ while counter <= b:
         for keys in gympass_bokstäver:
             ettpass.append(keys+" 2x10")
         flera_pass.append(ettpass)
-        print("138")
 
     elif d == "medel":
         for keys in gympass_bokstäver:
             ettpass.append(keys+" 3x10")
         flera_pass.append(ettpass)
-        print("144")
 
     elif d == "intensivt":
         nyövning = random.randrange(0, len(Intensivt))
@@ -131,34 +122,15 @@ while counter <= b:
         for keys in gympass_bokstäver:
             ettpass.append(keys+" 3x15")
         flera_pass.append(ettpass)
-        print("153")
 
     elif d == "väldigt lätt":
         for keys in gympass_bokstäver:
             ettpass.append(keys+" x10")
         flera_pass.append(ettpass)
-        print("159")
 
     else:
         print(felmeddelande)
-    print("88")
 
-
-if int(b) <= 2:
-    print("Här är dina pass: ")
-elif b == 1:
-    print("Här är ditt pass: ")
-else:
-    print("Här är passen.")
-
-# passnummer = 1
-# for träningspass in flera_pass:
-#     print("pass "+ str(passnummer) + str(träningspass))
-#     passnummer+=1
-
-# print(len(flera_pass))
-
-print(flera_pass)
 i3 = 0
 for listor in flera_pass:
     i4 = 0
@@ -183,23 +155,124 @@ for listor in flera_pass:
     i3 += 1
 
 for lista in flera_pass:
-    if lista < 8:
-        if a = "bål":
-            
-        elif a = "överkropp":
+    if len(lista) < 8:
+        ny_gympass_siffror = []
+        ny_gympass_bokstäver = []
+        i7 = 0
+        if a == "bål":
+            while len(lista) < 8:
+                ny_övn_siff = random.randrange(0, len(Gymövningar[2]["övningar"]))
+                ny_gympass_siffror.append(ny_övn_siff)
+                ny_övn_siff2 = random.randrange(0, len(Gymövningar[4]["övningar"]))
+                ny_gympass_siffror.append(ny_övn_siff2)
+                ny_plats = (ny_gympass_siffror[i7])
+                ny_övning = Gymövningar[2]["övningar"][ny_plats]
+                ny_övning2 = Gymövningar[4]["övningar"][ny_plats]
+                if ny_övning in lista:
+                    continue
+                elif ny_övning not in lista:
+                    if b == "väldigt lätt":
+                        lista.append(ny_övning+ " x10")
+                    elif d == "lätt":
+                        lista.append(ny_övning+ " 2x10")
+                    elif d == "medel":
+                        lista.append(ny_övning+ " 3x10")
+                    elif d == "intensivt":
+                        lista.append(ny_övning+ " 3x15")
+                if ny_övning2 in lista:
+                    continue
+                elif ny_övning2 not in lista:
+                    if b == "väldigt lätt":
+                        lista.append(ny_övning2+ " x10")
+                    elif d == "lätt":
+                        lista.append(ny_övning2+ " 2x10")
+                    elif d == "medel":
+                        lista.append(ny_övning2+ " 3x10")
+                    elif d == "intensivt":
+                        lista.append(ny_övning2+ " 3x15")
+                i7 += 1
 
-        elif a = "underkropp":
+        elif a == "överkropp":
+            while len(lista) < 8:
+                övningslista = random.randrange(0, 5)
+                ny_övn_siff = random.randrange(0, len(Gymövningar[övningslista]["övningar"]))
+                ny_gympass_siffror.append(ny_övn_siff)
+                ny_plats = (ny_gympass_siffror[i7])
+                ny_övning = Gymövningar[övningslista]["övningar"][ny_plats]
+                if ny_övning in lista:
+                    continue
+                elif ny_övning not in lista:
+                    if b == "väldigt lätt":
+                        lista.append(ny_övning+ " x10")
+                    elif d == "lätt":
+                        lista.append(ny_övning+ " 2x10")
+                    elif d == "medel":
+                        lista.append(ny_övning+ " 3x10")
+                    elif d == "intensivt":
+                        lista.append(ny_övning+ " 3x15")
+                i7 += 1
+
+        elif a == "underkropp":
+            while len(lista) < 8:
+                ny_övn_siff = random.randrange(0, len(Gymövningar[6]["övningar"]))
+                ny_gympass_siffror.append(ny_övn_siff)
+                ny_övn_siff2 = random.randrange(0, len(Gymövningar[7]["övningar"]))
+                ny_gympass_siffror.append(ny_övn_siff2)
+                ny_plats = (ny_gympass_siffror[i7])
+                ny_övning = Gymövningar[6]["övningar"][ny_plats]
+                ny_övning2 = Gymövningar[7]["övningar"][ny_plats]
+                if ny_övning in lista:
+                    continue
+                elif ny_övning not in lista:
+                    if b == "väldigt lätt":
+                        lista.append(ny_övning+ " x10")
+                    elif d == "lätt":
+                        lista.append(ny_övning+ " 2x10")
+                    elif d == "medel":
+                        lista.append(ny_övning+ " 3x10")
+                    elif d == "intensivt":
+                        lista.append(ny_övning+ " 3x15")
+                if ny_övning2 in lista:
+                    continue
+                elif ny_övning2 not in lista:
+                    if b == "väldigt lätt":
+                        lista.append(ny_övning2+ " x10")
+                    elif d == "lätt":
+                        lista.append(ny_övning2+ " 2x10")
+                    elif d == "medel":
+                        lista.append(ny_övning2+ " 3x10")
+                    elif d == "intensivt":
+                        lista.append(ny_övning2+ " 3x15")
+                i7 += 1
 
         else:
-            nyövning2 = random.randrange(0, 8)
+            while len(lista) < 8:
+                övningslista = random.randrange(0, len(Gymövningar))
+                ny_övn_siff = random.randrange(0, len(Gymövningar[övningslista]["övningar"]))
+                ny_gympass_siffror.append(ny_övn_siff)
+                ny_plats = (ny_gympass_siffror[i7])
+                ny_övning = Gymövningar[övningslista]["övningar"][ny_plats]
+                if ny_övning in lista:
+                    continue
+                elif ny_övning not in lista:
+                    if b == "väldigt lätt":
+                        lista.append(ny_övning+ " x10")
+                    elif d == "lätt":
+                        lista.append(ny_övning+ " 2x10")
+                    elif d == "medel":
+                        lista.append(ny_övning+ " 3x10")
+                    elif d == "intensivt":
+                        lista.append(ny_övning+ " 3x15")
+                i7 += 1
+
+if int(b) <= 2:
+    print("Här är dina pass: ")
+elif b == 1:
+    print("Här är ditt pass: ")
+else:
+    print("Här är passen: ")
 
 passnummer = 1
 for träningspass in flera_pass:
-    print("pass "+ str(passnummer) + str(träningspass))
+    print("pass "+ str(passnummer) + ": " + ', '.join(träningspass))
     passnummer+=1
-
-# if a.__contains__("km"):
-#     km_to_miles(a)
-# elif a.__contains__("miles"):
-#     miles_to_km(a)
-# kör debug programmet
