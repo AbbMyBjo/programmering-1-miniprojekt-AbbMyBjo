@@ -3,35 +3,34 @@ import random
 felmeddelande = "Något gick fel. Stänger av programmet." 
 print("Välkommen till gympass-skaparen. Nedan kan du skriva vilka du har för krav på passet/passen jag ska göra åt dig.")
 
-a = input("Vill du fokusera på någon/några speciella delar av kroppen? \n") #låter användaren välja om hen vill fokusera på nån speciell del av kroppen
+a = input("Vill du fokusera på någon/några speciella delar av kroppen? \n")
 if a == "ja":
-    a = input("Ange helkropp/överkropp/underkropp eller bål. \n") #skapar en variabel för den del av kroppen användaren skriver in att hen vill träna
-elif a == "nej":
-    a = "helkropp" #antar att användaren vill träna helkropp eftersom hen inte skrivit någon speciell del av kroppen
+    a = input("Ange helkropp/överkropp/underkropp eller bål. \n")
+    a = "helkropp"
 else:
-    print(felmeddelande) #skrivs ut om programmet inte uppfattar det som skrivs i input och avslutar
+    print(felmeddelande)
     exit
 
-b = input("Hur många pass vill du att jag ska göra? \n") #skapar en variabel för antal pass programmet ska göra
+b = input("Hur många pass vill du att jag ska göra? \n")
 
-try: #kollar om input för antal pass är en giltig siffra genom att se om det går att göra om den till int
+try:
     b = int(b)
-except: #ber användaren mata in ett giltigt nummer om try-satsen inte fungerar
+except:
     while 1:
         print("Ange ett giltigt nummer.")
         b = input("Hur många pass vill du att jag ska göra? \n")
-        try: #testar om det är ett giltigt nummer igen och går ut ur loopen om det är det
+        try:
             b = int(b) 
             break
-        except: #fortsätter loopen om numret inte är giltigt 
+        except:
             continue
 
-if b == 1: #om b är 1 skapas en variabel (d) för svårighetsgrad som är i singular
+if b == 1:
     d = input("Hur hårt ska passet vara? Välj mellan väldigt lätt, lätt, medel och intensivt. \n")
-elif b > 1: #om b är större än 1 skapas en variabel (d) för svårighetsgrad som är i plural
+elif b > 1:
     d = input("Hur hårda ska passen vara? Välj mellan väldigt lätt, lätt, medel och intensivt. \n")
 
-Gymövningar = [ #skapar en lista för gymövningar med ett dictionary för varje kroppsdel som har en lista med övningar för de musklerna
+Gymövningar = [
         {"namn": "biceps", "övningar":["skivstångscurl", "hantelcurl", "hammercurl", "chins", "preacher curls", "sittande bicepscurls", "koncentrationscurl"]},
         {"namn": "bröst", "övningar":["bänkpress", "hantelpress", "lutande bänkpress/hantelpress", "breda armävningar", "smal bänkpress", "kryssdrag", "pec deck", "bröstpress"]},
         {"namn": "mage", "övningar":["kabelcrunch", "hängande benlyft/benlyft", "kabelrotationer", "alternerande hälnuddningar", "cykelcrunch", "plankan", "fällkniven", "crunches"]},
@@ -41,41 +40,37 @@ Gymövningar = [ #skapar en lista för gymövningar med ett dictionary för varj
         {"namn": "lår", "övningar":["backsquats", "nordic hamstring curl", "frontsquats", "jumping squats", "utfallssteg", "höftlyft", "benpress", "bensträck", "bencurls", "höftabduktion"]},
         {"namn": "rumpa", "övningar":["jumping squats", "squats", "höftlyft", "utfallssteg", "rumplyft", "flutter kicks", "sumo marklyft", "backsquats", "frontsquats"]}]
 
-#skapar en lista med lite intensivare övningar som används endast när svårighetsgraden intensivt matas in
 Intensivt =["burpees", "armhävningar", "plankan", "thrusters", "man-makers", "kettlebell swingar", "box jumps", "jägarvila", "toe to bar"]
 
-flera_pass = [] #skapar en lista där de slutgiltiga passen ska läggas in
+flera_pass = []
 
-counter = 0 #skapar variabeln counter och ger den värdet 0
-
+counter = 0
 while counter < b: 
-#gör en loop som gäller när variabeln counter är mindre än variabeln b (antal pass)
-#hela loopen används för att skapa pass som läggs i listan flera_pass 
-    i = 0 #skapar variablerna i, x, y och i2 och ger alla de värdena 0
-    x = 0 #variablerna nollställs igen när loopen börjar om
+    i = 0
+    x = 0
     y = 0
     i2=0
 
-    ettpass = [] #skapar en lista som ska innehålla ett pass
-    gympass_siffror = [] #skapar en lista där index ska ligga för varje övning i passet som ska skapas
-    gympass_bokstäver = [] #skapar en lista där övningarna läggs in i bokstavsform
-#alla 3 listor nollställs när loopen börjar om
+    ettpass = []
+    gympass_siffror = []
+    gympass_bokstäver = []
 
-    if a == "helkropp": #om input a är helkropp körs den här if-satsen
-        for keys in Gymövningar: #för varje värde i Gymövningar ska loopen köras en gång
-            övn_siff = random.randrange(0, len(Gymövningar[i]["övningar"])) #randomiserar ett index från en lista i gymövningar beroende på variabeln i som defineras som EnNyÖvning
-            gympass_siffror.append(övn_siff) #lägger till värdet ovan i listan
-            i+=1 #lägger till 1 i värde på variabeln i
 
-        for keys in gympass_siffror: #för varje värde i listan körs loopen en gång
-            plats = (gympass_siffror[x]) #definerar plats som värdet på variabeln x i listan
-            övning = Gymövningar[y]["övningar"][plats] #kollar vad index i listan heter som en string
-            x+=1 #plussar på 1 på variabeln x
-            y+=1 #plussar på 1 på variabeln y
-            gympass_bokstäver.append(övning) #lägger till stringen i den nya listan
+    if a == "helkropp":
+        for keys in Gymövningar:
+            övn_siff = random.randrange(0, len(Gymövningar[i]["övningar"]))
+            gympass_siffror.append(övn_siff)
+            i+=1
 
-    elif a == "överkropp": #om input a är helkropp körs den här delen av if-satsen
-        while i <= 5: #när variabeln i har ett värde som är lika med eller mindre än 5 körs loopen
+        for keys in gympass_siffror:
+            plats = (gympass_siffror[x])
+            övning = Gymövningar[y]["övningar"][plats]
+            x+=1
+            y+=1
+            gympass_bokstäver.append(övning)
+
+    elif a == "överkropp":
+        while i <= 5:
             övn_siff = random.randrange(0, len(Gymövningar[i2]["övningar"]))
             gympass_siffror.append(övn_siff)
             i2+=1

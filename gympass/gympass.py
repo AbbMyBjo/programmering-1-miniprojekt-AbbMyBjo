@@ -54,7 +54,7 @@ while counter < b:
     i = 0 #skapar variablerna i, x, y och i2 och ger alla de värdena 0
     x = 0 #variablerna nollställs igen när loopen börjar om
     y = 0
-    i2=0
+    i2 = 0
 
     ettpass = [] #skapar en lista som ska innehålla ett pass
     gympass_siffror = [] #skapar en lista där index ska ligga för varje övning i passet som ska skapas
@@ -63,7 +63,7 @@ while counter < b:
 
     if a == "helkropp": #om input a är helkropp körs den här if-satsen
         for keys in Gymövningar: #för varje värde i Gymövningar ska loopen köras en gång
-            övn_siff = random.randrange(0, len(Gymövningar[i]["övningar"])) #randomiserar ett index från en lista i gymövningar beroende på variabeln i som defineras som EnNyÖvning
+            övn_siff = random.randrange(0, len(Gymövningar[i]["övningar"])) #randomiserar ett index från en lista i gymövningar beroende på variabeln i som defineras som övn_siff
             gympass_siffror.append(övn_siff) #lägger till värdet ovan i listan
             i+=1 #lägger till 1 i värde på variabeln i
 
@@ -75,44 +75,43 @@ while counter < b:
             gympass_bokstäver.append(övning) #lägger till stringen i den nya listan
 
     elif a == "överkropp": #om input a är helkropp körs den här delen av if-satsen
-        while i <= 5: #när variabeln i har ett värde som är lika med eller mindre än 5 körs loopen
-            övn_siff = random.randrange(0, len(Gymövningar[i2]["övningar"]))
+        while i2 <= 5: #när variabeln i har ett värde som är lika med eller mindre än 5 körs loopen
+            övn_siff = random.randrange(0, len(Gymövningar[i]["övningar"])) #samma som första for-loopen
             gympass_siffror.append(övn_siff)
             i2+=1
             i+=1
 
-        for saker in gympass_siffror:
+        for keys in gympass_siffror: #exakt likadan som for-loopen innan
             plats = (gympass_siffror[x])
             övning = Gymövningar[y]["övningar"][plats]
             x+=1
             y+=1
             gympass_bokstäver.append(övning)
 
-    elif a == "underkropp":
-        while i <= 6:
-            ÖvningEtt = random.randrange(0, len(Gymövningar[6]["övningar"])-1)
-            ÖvningTvå = random.randrange(0, len(Gymövningar[7]["övningar"])-1)
-            gympass_siffror.append(ÖvningEtt)
-            i += 1
-            gympass_siffror.append(ÖvningTvå)
-            i += 1
+    elif a == "underkropp": #om input a är underkropp körs den här delen av if-satsen
+        while i <= 6: #när variabeln i har ett värde som är mindre eller lika med 6 körs loopen
+            ÖvningEtt = random.randrange(0, len(Gymövningar[6]["övningar"])-1) #randomiserar en siffra mellan 0 och längden på listan för lårövningar
+            ÖvningTvå = random.randrange(0, len(Gymövningar[7]["övningar"])-1) #randomiserar en siffra mellan 0 och längden på listan för rumpövningar
+            gympass_siffror.append(ÖvningEtt) #lägger till index för övningen i listan
+            gympass_siffror.append(ÖvningTvå) #lägger till index för övningen i listan
+            i += 2
 
-        ii = 0
-        while ii <= len(gympass_siffror):
-            while 1:
-                if len(gympass_bokstäver)==8:
+        ii = 0 #definerar ii som en variabel med värde 0
+        while ii <= len(gympass_siffror): #när variabeln ii är mindre eller lika med längden på listan körs loopen
+            while 1: #så länge man inte säger att den är false ska loopen köras
+                if len(gympass_bokstäver)==8: #om längden på listan är 8, gå ut ur loopen
                     break
-                else:
-                    plats = (gympass_siffror[x])
-                    övning = Gymövningar[6]["övningar"][plats]
-                    gympass_bokstäver.append(övning)
+                else: #om den inte är 8
+                    plats = (gympass_siffror[x]) #definerar plats som index x i listan
+                    övning = Gymövningar[6]["övningar"][plats] #kollar vilken övning som har indexet plats och gör om det till en string
+                    gympass_bokstäver.append(övning) #lägger till stringen i listan
                     övning2 = Gymövningar[7]["övningar"][plats]
                     gympass_bokstäver.append(övning2)
                     y+=1
                     x+=1
-            i+=1
+            ii+=1
     
-    elif a == "bål":
+    elif a == "bål": #om input a är bål körs den här delen av if-satsen
         while i < 6:
             ÖvningEtt = random.randrange(0, len(Gymövningar[2]["övningar"]))
             ÖvningTvå = random.randrange(0, len(Gymövningar[4]["övningar"]))
@@ -120,13 +119,12 @@ while counter < b:
             gympass_siffror.append(ÖvningTvå)
             i += 2
 
-        sant = True
+        sant = True #skapar variabeln sant och ger den värdet true
 
-        while sant == True:
-            if int(len(gympass_bokstäver)) == 8:
+        while sant == True: #när sant har värdet true körs loopen
+            if int(len(gympass_bokstäver)) == 8: #om längden på listan är 8, ge sant värdet false
                 sant = False
-            else:
-                sant = True
+            else: #om den inte är 8
                 plats = (gympass_siffror[x])
                 övning = Gymövningar[2]["övningar"][plats]
                 gympass_bokstäver.append(övning)
@@ -136,21 +134,21 @@ while counter < b:
                 x+=1
 
     counter += 1
-    if d == "lätt":
-        for keys in gympass_bokstäver:
-            ettpass.append(keys+" 2x10")
-        flera_pass.append(ettpass)
+    if d == "lätt": #om variabeln d är lätt körs den här
+        for keys in gympass_bokstäver: #för varje värde i listan körs loopen
+            ettpass.append(keys+" 2x10") #lägger till varje värde + " 2x10" i listan
+        flera_pass.append(ettpass) #lägger till listan ettpass i listan flera_pass
 
     elif d == "medel":
         for keys in gympass_bokstäver:
-            ettpass.append(keys+" 3x10")
+            ettpass.append(keys+" 3x10") #samma som förra delen men skriver 3x10 istället för 2x10
         flera_pass.append(ettpass)
 
     elif d == "intensivt":
-        nyövning = random.randrange(0, len(Intensivt))
-        gympass_siffror.append(Intensivt[nyövning])
-        gympass_bokstäver.append(gympass_siffror[-1]) 
-        for keys in gympass_bokstäver:
+        nyövning = random.randrange(0, len(Intensivt)) #randomiserar ett tal mellan 0 och längden på listan för intensiva övningar
+        gympass_siffror.append(Intensivt[nyövning]) #lägger till indexet i listan
+        gympass_bokstäver.append(gympass_siffror[-1]) #lägger till den sista övningen i gympass_siffror i gympass_bokstäver
+        for keys in gympass_bokstäver: 
             ettpass.append(keys+" 3x15")
         flera_pass.append(ettpass)
 
@@ -160,7 +158,7 @@ while counter < b:
         flera_pass.append(ettpass)
 
     else:
-        print(felmeddelande)
+        print(felmeddelande) #skriver ett felmeddelande om input d inte är något av alternativen
 
 i3 = 0
 for listor in flera_pass:
