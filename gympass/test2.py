@@ -6,6 +6,7 @@ print("Välkommen till gympass-skaparen. Nedan kan du skriva vilka du har för k
 a = input("Vill du fokusera på någon/några speciella delar av kroppen? \n")
 if a == "ja":
     a = input("Ange helkropp/överkropp/underkropp eller bål. \n")
+elif a == "nej":
     a = "helkropp"
 else:
     print(felmeddelande)
@@ -40,7 +41,7 @@ Gymövningar = [
         {"namn": "lår", "övningar":["backsquats", "nordic hamstring curl", "frontsquats", "jumping squats", "utfallssteg", "höftlyft", "benpress", "bensträck", "bencurls", "höftabduktion"]},
         {"namn": "rumpa", "övningar":["jumping squats", "squats", "höftlyft", "utfallssteg", "rumplyft", "flutter kicks", "sumo marklyft", "backsquats", "frontsquats"]}]
 
-Intensivt =["burpees", "armhävningar", "plankan", "thrusters", "man-makers", "kettlebell swingar", "box jumps", "jägarvila", "toe to bar"]
+Intensivt = ["burpees", "armhävningar", "plankan", "thrusters", "man-makers", "kettlebell swingar", "box jumps", "jägarvila", "toe to bar"]
 
 flera_pass = []
 

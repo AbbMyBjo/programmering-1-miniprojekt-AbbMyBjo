@@ -158,10 +158,10 @@ while counter < b:
         flera_pass.append(ettpass)
 
     else:
-        print(felmeddelande) #skriver ett felmeddelande om input d inte är något av alternativen
+        print(felmeddelande)
 
 i3 = 0
-for listor in flera_pass:
+for listor in flera_pass: #kollar om det finns flera av samma värde i en lista och tar då bort alla utom 1
     i4 = 0
     for övning in flera_pass[i3]:
         poppat_värde = flera_pass[i3].pop(i4)
@@ -183,12 +183,13 @@ for listor in flera_pass:
         i4 += 1
     i3 += 1
 
-for lista in flera_pass:
+for lista in flera_pass: #lägger till nya övningar i listor som blivit kortare pga den förra loopen
     if len(lista) < 8:
         ny_gympass_siffror = []
         ny_gympass_bokstäver = []
         i7 = 0
-        if a == "bål":
+        
+        if a == "bål": #varje del av kroppen för sig så det blir rätt övningar
             while len(lista) < 8:
                 ny_övn_siff = random.randrange(0, len(Gymövningar[2]["övningar"]))
                 ny_gympass_siffror.append(ny_övn_siff)
@@ -274,7 +275,7 @@ for lista in flera_pass:
                         lista.append(ny_övning2+ " 3x15")
                 i7 += 1
 
-        else:
+        else: #om inget av ovanstående skrivs in finns bara helkropp kvar så de skulle kunnat stå elif a == "helkropp" lika gärna
             while len(lista) < 8:
                 övningslista = random.randrange(0, len(Gymövningar))
                 ny_övn_siff = random.randrange(0, len(Gymövningar[övningslista]["övningar"]))
@@ -294,8 +295,8 @@ for lista in flera_pass:
                         lista.append(ny_övning+ " 3x15")
                 i7 += 1
 
-print(" ")
-if int(b) <= 2:
+print(" ") #skriver "här är ditt/dina pass" beroende på antal pass man angett tidigare
+if int(b) >= 2:
     print("Här är dina pass: \n")
 elif b == 1:
     print("Här är ditt pass: \n")
@@ -303,7 +304,7 @@ else:
     print("Här är passen: \n")
 
 passnummer = 1
-for träningspass in flera_pass:
+for träningspass in flera_pass: #skriver ut passen som "Pass 1: " osv 
     print("Pass "+str(passnummer)+": ")
     print(', '.join(träningspass)+"\n")
     passnummer+=1
